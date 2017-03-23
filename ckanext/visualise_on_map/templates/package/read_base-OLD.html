@@ -1,0 +1,15 @@
+{% ckan_extends %}
+
+{% set pkg = c.pkg_dict %}
+
+{% block secondary_content %}
+  
+  {% block map_buton %}
+  
+    {% snippet 'snippets/visualise_on_map_button.html' %}
+    
+  {% endblock %}
+  
+  {{ super() }}
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{#
+  Generates a button with text and a hyperlink label to show a layer on Geocortex.
+#}
+
+{% set pkg = c.pkg_dict %}
+{% set mapurl="http://"+(request.url.split("/")[2]|replace("ckan", "geo")|replace("datasets", "geo"))+"/EDP_Public_Viewer/Index.html?viewer=EDP_Public_Viewer&run=ViewMap&url="+(c.pkg_dict.map_type)+":map_service_id="+(c.pkg_dict.map_service_id|replace("&", "+"))+";layer_id="+(c.pkg_dict.layer_id|replace("&", "+")) -%}
+
+{#{% if h.visualise_on_map_has_web_map_layer(pkg) %}#}
+{% if pkg.map_type and pkg.map_service_id and pkg.layer_id %}
+
+  <section class="module-content">
+    {#<a href={{ h.visualise_on_map_get_web_map_layer_url(pkg) }} class="btn btn-success" target="_blank">#}
+      <a href="{{ mapurl }}" class="btn btn-primary" alt="visualise on map">
+      <i class="icon-medium icon-globe"></i>
+      View on Map
+    </a>
+  </section>
+
+{% endif %}
