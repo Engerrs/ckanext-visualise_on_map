@@ -3,7 +3,8 @@
 #}
 
 {% set pkg = c.pkg_dict %}
-{% set mapurl="http://"+(request.url.split("/")[2]|replace("ckan", "geo")|replace("datasets", "geo"))+"/EDP_Public_Viewer/Index.html?viewer=EDP_Public_Viewer&run=ViewMap&url="+(c.pkg_dict.map_type)+":map_service_id="+(c.pkg_dict.map_service_id|replace("&", "+"))+";layer_id="+(c.pkg_dict.layer_id|replace("&", "+")) -%}
+
+{% set mapurl="https://geo.seed.nsw.gov.au/EDP_Public_Viewer/Index.html?viewer=EDP_Public_Viewer&run=ViewMap&url="+(c.pkg_dict.map_type)+":map_service_id="+(c.pkg_dict.map_service_id|replace("&", "+"))+";layer_id="+(c.pkg_dict.layer_id|replace("&", "+")) -%}
 
 {% if pkg.map_type and pkg.map_service_id and pkg.layer_id %}
   <section class="module-content">
